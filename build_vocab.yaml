@@ -1,0 +1,26 @@
+# build_vocab.yaml
+
+## Where the samples will be written
+save_data: mydata/sample
+dump_samples: True
+## Where the vocab(s) will be written
+src_vocab: mydata/sample/example.vocab.src
+tgt_vocab: mydata/sample/example.vocab.tgt
+vocab_size_multiple: 8
+src_words_min_frequency: 3
+tgt_words_min_frequency: 2
+-n_sample: -1
+# Prevent overwriting existing files in the folder
+overwrite: False
+
+# Corpus opts:
+data:
+    corpus_1:
+        path_src: mydata/src-train.txt
+        path_tgt: mydata/tgt-train.txt
+        transforms: [filtertoolong]
+        weigth: 1
+    valid:
+        path_src: mydata/src-val.txt
+        path_tgt: mydata/tgt-val.txt
+        transforms: []

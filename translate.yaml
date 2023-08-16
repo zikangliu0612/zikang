@@ -1,0 +1,29 @@
+data:
+    coupus:
+        path_src: mydata/src-train.txt
+        path_tgt: mydata/tgt-train.txt
+        transforms: [filtertoolong]  #filtertoolong
+        weigth: 1
+    valid:
+        path_src: mydata/src-val.txt
+        path_tgt: mydata/tgt-val.txt
+        transforms: []
+
+seed: 1234
+
+
+
+
+# # translate
+gpu: 0
+batch_type: "sents"
+batch_size: 64
+beam_size: 5
+model: run/train_model_step_1000.pt
+src: mydata/src-test.txt
+tgt: mydata/tgt-test.txt
+output: run/translate_model_step_1000.txt
+min_length: 2
+#share_decoder_embeddings: true
+#share_embeddings: true
+#position_encoding: true
